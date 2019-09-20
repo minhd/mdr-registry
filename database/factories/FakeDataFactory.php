@@ -14,16 +14,26 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\DataSource::class, function (Faker $faker){
+$factory->define(App\DataSource::class, function (Faker $faker) {
     return [
         'title' => $faker->name,
         'user_id' => factory(App\User::class)->create()->id
     ];
 });
 
-$factory->define(App\Record::class, function (Faker $faker){
+$factory->define(App\Record::class, function (Faker $faker) {
     return [
         'title' => $faker->name,
         'data_source_id' => factory(App\DataSource::class)->create()->id
+    ];
+});
+
+$factory->define(App\Schema::class, function (Faker $faker) {
+    return [
+        'schema_id' => $faker->uuid,
+        'title' => $faker->name,
+        'format' => $faker->randomElement(['application/json', 'application/xml', 'text/plain']),
+        'description' => $faker->paragraph,
+        'user_id' => factory(App\User::class)->create()->id
     ];
 });
