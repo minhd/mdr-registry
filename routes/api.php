@@ -18,3 +18,8 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
 });
 
 Route::get('/', 'API\APIController@index');
+
+Route::middleware('auth:api')->group(function () {
+    Route::model('datasource', App\Datasource::class);
+    Route::apiResource('datasources', 'API\Resource\DataSourceAPIController');
+});

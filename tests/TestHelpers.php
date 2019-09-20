@@ -5,10 +5,13 @@ function create($class, array $attributes = [], int $count = 1)
     if ($count === 1) {
         return factory($class)->create($attributes);
     }
+
+    $results = [];
     for ($i = 0; $i < $count; $i++) {
-        factory($class)->create($attributes);
+        $results[] = factory($class)->create($attributes);
     }
-    return true;
+
+    return collect($results);
 }
 
 function signIn($user = null)
