@@ -37,3 +37,12 @@ $factory->define(App\Schema::class, function (Faker $faker) {
         'user_id' => factory(App\User::class)->create()->id
     ];
 });
+
+$factory->define(App\Version::class, function (Faker $faker) {
+    return [
+        'schema_id' => factory(App\Schema::class)->create()->schema_id,
+        'record_id' => factory(App\Record::class)->create()->id,
+        'status' => 'CURRENT',
+        'data' => $faker->paragraph
+    ];
+});

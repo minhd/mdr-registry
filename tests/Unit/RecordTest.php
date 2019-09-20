@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\DataSource;
 use App\Record;
+use App\Version;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
