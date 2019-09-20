@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Datasource;
+use App\Record;
+use App\Schema;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +26,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        Route::model('datasource', Datasource::class);
+        Route::model('record', Record::class);
+        Route::model('schema', Schema::class);
     }
 
     /**

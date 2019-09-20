@@ -13,17 +13,16 @@ use Illuminate\Http\Request;
 |
 */
 
+// api/me
 Route::middleware('auth:api')->get('/me', function (Request $request) {
     return $request->user();
 });
 
+// api/
 Route::get('/', 'API\APIController@index');
 
-Route::middleware('auth:api')->group(function () {
-    Route::model('datasource', App\Datasource::class);
-    Route::model('record', App\Record::class);
-    Route::model('schema', App\Schema::class);
-
+// api/resources
+Route::middleware('auth:api')->prefix('resources')->group(function () {
     Route::apiResource('datasources', 'API\Resource\DataSourceAPIController');
     Route::apiResource('records', 'API\Resource\RecordAPIController');
     Route::apiResource('schemas', 'API\Resource\SchemaAPIController');
