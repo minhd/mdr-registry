@@ -21,5 +21,7 @@ Route::get('/', 'API\APIController@index');
 
 Route::middleware('auth:api')->group(function () {
     Route::model('datasource', App\Datasource::class);
+    Route::model('record', App\Record::class);
     Route::apiResource('datasources', 'API\Resource\DataSourceAPIController');
+    Route::apiResource('records', 'API\Resource\RecordAPIController');
 });
