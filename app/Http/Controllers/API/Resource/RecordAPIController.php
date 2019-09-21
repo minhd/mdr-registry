@@ -64,12 +64,14 @@ class RecordAPIController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return Response
+     * @throws \Exception
      */
     public function destroy(Record $record)
     {
         $record->delete();
+
         return response("OK", Response::HTTP_ACCEPTED);
     }
 }
