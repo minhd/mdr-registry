@@ -38,4 +38,18 @@ class ImportManager
             'data' => $payload
         ]);
     }
+
+    public function updateRecord(Record $record, Schema $schema, $payload)
+    {
+        $record->versions()->where('schema_id', $schema->schema_id)->update([
+            'status' => 'SUPERCEDED'
+        ]);
+
+        Version::create([
+            'schema_id' => $schema->schema_id,
+            'record_id' => $record->id,
+            'status' => 'CURRENT',
+            'data' => $payload
+        ]);
+    }
 }
