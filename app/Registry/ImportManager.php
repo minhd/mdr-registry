@@ -2,6 +2,7 @@
 
 namespace App\Registry;
 
+use App\Jobs\SyncRecord;
 use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
 use App\Registry\Models\Version;

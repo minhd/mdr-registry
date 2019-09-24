@@ -8,6 +8,10 @@ class Record extends Model
 {
     protected $fillable = ['title', 'data_source_id'];
 
+    protected $casts = [
+        'meta' => 'json'
+    ];
+
     public function datasource()
     {
         return $this->belongsTo(DataSource::class, 'data_source_id');

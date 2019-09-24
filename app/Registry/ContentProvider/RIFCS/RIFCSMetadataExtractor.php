@@ -4,6 +4,7 @@
 namespace App\Registry\ContentProvider\RIFCS;
 
 
+use Exception;
 use SimpleXMLElement;
 
 abstract class RIFCSMetadataExtractor
@@ -48,7 +49,7 @@ abstract class RIFCSMetadataExtractor
         }
 
         if ($xml === false) {
-            $exception_message = "Could not parse Registry Object XML" . NL;
+            $exception_message = "Could not parse Registry Object XML";
             foreach (libxml_get_errors() as $error) {
                 $exception_message .= "    " . $error->message;
             }

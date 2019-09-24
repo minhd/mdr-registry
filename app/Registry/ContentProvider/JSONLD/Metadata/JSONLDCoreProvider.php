@@ -10,8 +10,8 @@ class JSONLDCoreProvider extends JSONLDMetadataExtractor
     public function handle()
     {
         return [
+            'title' => $this->doc['name'],
             'type' => $this->doc['@type'],
-            'name' => $this->doc['name'],
             'url' => $this->doc['url']
         ];
     }

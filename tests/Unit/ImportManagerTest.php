@@ -8,6 +8,7 @@ use App\Registry\Models\Record;
 use App\Registry\Models\Schema;
 use App\Registry\Models\Version;
 use Exception;
+use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

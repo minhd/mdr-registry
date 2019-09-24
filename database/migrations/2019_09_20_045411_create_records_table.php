@@ -17,6 +17,7 @@ class CreateRecordsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->unsignedBigInteger('data_source_id');
+            $table->longText('meta')->nullable();
             $table->foreign('data_source_id')->references('id')->on('data_sources');
             $table->timestamps();
         });
