@@ -30,7 +30,6 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::model('datasource', Datasource::class);
         Route::model('record', Record::class);
-        Route::model('schema', Schema::class);
     }
 
     /**

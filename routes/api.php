@@ -25,6 +25,5 @@ Route::get('/', 'API\APIController@index');
 Route::middleware('auth:api')->prefix('resources')->group(function () {
     Route::apiResource('datasources', 'API\Resource\DataSourceAPIController');
     Route::apiResource('records', 'API\Resource\RecordAPIController');
-    Route::apiResource('schemas', 'API\Resource\SchemaAPIController');
     Route::apiResource('records.versions', 'API\Resource\RecordVersionAPIController');
 });
