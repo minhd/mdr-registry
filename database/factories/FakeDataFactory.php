@@ -4,7 +4,7 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Registry\Models\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
@@ -14,34 +14,34 @@ $factory->define(App\User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\DataSource::class, function (Faker $faker) {
+$factory->define(App\Registry\Models\DataSource::class, function (Faker $faker) {
     return [
         'title' => $faker->name,
-        'user_id' => factory(App\User::class)->create()->id
+        'user_id' => factory(App\Registry\Models\User::class)->create()->id
     ];
 });
 
-$factory->define(App\Record::class, function (Faker $faker) {
+$factory->define(App\Registry\Models\Record::class, function (Faker $faker) {
     return [
         'title' => $faker->name,
-        'data_source_id' => factory(App\DataSource::class)->create()->id
+        'data_source_id' => factory(App\Registry\Models\DataSource::class)->create()->id
     ];
 });
 
-$factory->define(App\Schema::class, function (Faker $faker) {
+$factory->define(App\Registry\Models\Schema::class, function (Faker $faker) {
     return [
         'schema_id' => $faker->uuid,
         'title' => $faker->name,
         'format' => $faker->randomElement(['application/json', 'application/xml', 'text/plain']),
         'description' => $faker->paragraph,
-        'user_id' => factory(App\User::class)->create()->id
+        'user_id' => factory(App\Registry\Models\User::class)->create()->id
     ];
 });
 
-$factory->define(App\Version::class, function (Faker $faker) {
+$factory->define(App\Registry\Models\Version::class, function (Faker $faker) {
     return [
-        'schema_id' => factory(App\Schema::class)->create()->schema_id,
-        'record_id' => factory(App\Record::class)->create()->id,
+        'schema_id' => factory(App\Registry\Models\Schema::class)->create()->schema_id,
+        'record_id' => factory(App\Registry\Models\Record::class)->create()->id,
         'status' => 'CURRENT',
         'data' => $faker->paragraph
     ];

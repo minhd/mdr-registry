@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Datasource;
-use App\Record;
-use App\Schema;
+use App\Registry\Models\Datasource;
+use App\Registry\Models\Record;
+use App\Registry\Models\Schema;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\API;
 
-use App\DataSource;
-use App\User;
+use App\Registry\Models\DataSource;
+use App\Registry\Models\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

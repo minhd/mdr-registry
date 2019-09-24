@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\Schema;
-use App\User;
+use App\Registry\Models\Schema;
+use App\Registry\Models\User;
 use Symfony\Component\VarDumper\Cloner\Data;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;

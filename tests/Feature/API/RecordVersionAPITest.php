@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Record;
-use App\Version;
+use App\Registry\Models\Record;
+use App\Registry\Models\Version;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -34,25 +34,7 @@ class RecordVersionAPITest extends TestCase
             ->assertStatus(401)->assertSee('Unauthenticated');
     }
 
-    /** @test */
-    function it_can_create_version()
-    {
-//        $record = create(Record::class);
-//
-//        $this->postJson(route('records.versions.store', ['record' => $record]))
-//        ->assertStatus(201);
-    }
-
-    /** @test */
-    function it_can_update_version()
-    {
-
-    }
-
-    /** @test */
-    function it_can_delete_version()
-    {
-
-    }
-
+    // TODO it can create version()
+    // TODO it_can_update_version()
+    // TODO it_can_delete_version()
 }

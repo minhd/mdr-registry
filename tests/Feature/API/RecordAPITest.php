@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\DataSource;
-use App\Record;
+use App\Registry\Models\DataSource;
+use App\Registry\Models\Record;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 

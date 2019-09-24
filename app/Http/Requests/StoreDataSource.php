@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\DataSource;
+use App\Registry\Models\DataSource;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreDataSource extends FormRequest

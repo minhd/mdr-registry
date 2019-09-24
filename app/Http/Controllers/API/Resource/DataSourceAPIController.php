@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\API\Resource;
 
-use App\DataSource;
+use App\Registry\Models\DataSource;
 use App\Http\Requests\StoreDataSource;
 use Exception;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
-use Zend\Diactoros\ResponseFactory;
 
 class DataSourceAPIController extends Controller
 {

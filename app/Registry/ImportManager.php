@@ -1,6 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Registry;
+
+use App\Registry\Models\DataSource;
+use App\Registry\Models\Record;
+use App\Registry\Models\Schema;
+use App\Registry\Models\Version;
 
 class ImportManager
 {

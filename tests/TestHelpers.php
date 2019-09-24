@@ -17,7 +17,7 @@ function create($class, array $attributes = [], int $count = 1)
 function signIn($user = null)
 {
     if ($user === null) {
-        $user = factory(App\User::class)->create();
+        $user = factory(App\Registry\Models\User::class)->create();
     }
     Laravel\Passport\Passport::actingAs($user);
     return $user;

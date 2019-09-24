@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use App\DataSource;
-use App\User;
+use App\Registry\Models\DataSource;
+use App\Registry\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;

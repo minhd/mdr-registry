@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API\Resource;
 
-use App\Record;
+use App\Registry\Models\Record;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;

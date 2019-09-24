@@ -2,13 +2,12 @@
 
 namespace Tests\Unit;
 
-use App\DataSource;
-use App\ImportManager;
-use App\Record;
-use App\Schema;
-use App\Version;
+use App\Registry\ImportManager;
+use App\Registry\Models\DataSource;
+use App\Registry\Models\Record;
+use App\Registry\Models\Schema;
+use App\Registry\Models\Version;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ImportManagerTest extends TestCase
