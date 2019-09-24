@@ -4,7 +4,6 @@ namespace App\Registry;
 
 use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
-use App\Registry\Models\Schema;
 use App\Registry\Models\Version;
 use Exception;
 
@@ -33,7 +32,7 @@ class ImportManager
 
         $payload = $request['payload']['data'];
 
-         // extract identification from payload to update existing records
+        // extract identification from payload to update existing records
 
         // create new record
         $this->addRecord($dataSource, $schema, $payload);
