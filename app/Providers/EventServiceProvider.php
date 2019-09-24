@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\RecordMetadataUpdated;
+use App\Events\RecordUpdated;
+use App\Jobs\ProcessRecordMetadata;
+use App\Listeners\RecordUpdatedListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -15,6 +19,9 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+        RecordMetadataUpdated::class => [
+            RecordUpdatedListener::class
+        ],
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],

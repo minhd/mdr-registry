@@ -15,5 +15,10 @@ return [
                 'core' => App\Registry\ContentProvider\JSONLD\Metadata\JSONLDCoreProvider::class,
             ]
         ]
+    ],
+    'status' => [
+        'current' => 'CURRENT',
+        'draft' => 'DRAFT',
+        'superceded' => 'SUPERCEDED'
     ]
 ];

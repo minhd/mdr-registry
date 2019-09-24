@@ -24,6 +24,6 @@ class Record extends Model
 
     public function getCurrentAttribute()
     {
-        return $this->versions->where('status', 'CURRENT')->first();
+        return $this->versions->where('status', config('registry.status.current'))->first();
     }
 }
