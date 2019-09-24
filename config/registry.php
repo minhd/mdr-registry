@@ -10,7 +10,10 @@ return [
             ]
         ],
         'json-ld' => [
-            'provider' => App\Registry\ContentProvider\JSONLD\JSONLDContentProvider::class
+            'provider' => App\Registry\ContentProvider\JSONLD\JSONLDContentProvider::class,
+            'metadata' => [
+                'core' => App\Registry\ContentProvider\JSONLD\Metadata\JSONLDCoreProvider::class,
+            ]
         ]
     ]
 ];
