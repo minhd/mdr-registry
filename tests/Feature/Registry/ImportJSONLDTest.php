@@ -1,32 +1,30 @@
 <?php
 
-
-namespace Tests\Feature;
-
+namespace Tests\Feature\Registry;
 
 use App\Registry\ImportManager;
 use App\Registry\Models\DataSource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ImportRIFCSTest extends TestCase
+class ImportJSONLDTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    function it_can_import_rifcs()
+    function it_can_import_jsonld()
     {
-        $rifcs = resource_path('tests/rifcs/collection_all_elements.xml');
+        $json = resource_path('tests/jsonld/rda-754374.json');
         $dataSource = create(DataSource::class);
 
         $importer = new ImportManager();
         $importer->import([
             'data_source_id' => $dataSource->id,
             'payload' => [
-                'schema' => 'rifcs',
+                'schema' => 'json-ld',
                 'data' => [
                     'type' => 'local',
-                    'path' => $rifcs
+                    'path' => $json
                 ]
             ]
         ]);
@@ -34,6 +32,8 @@ class ImportRIFCSTest extends TestCase
         // 1 record in the data source
         $this->assertEquals(1, $dataSource->records->count());
         $record = $dataSource->records->first();
-        $this->assertEquals('rifcs', $record->current->schema);
+        $this->assertEquals('json-ld', $record->current->schema);
     }
+
+    // TODO test extract basic information from json-ld
 }

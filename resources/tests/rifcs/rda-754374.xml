@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registryObjects xmlns="http://ands.org.au/standards/rif-cs/registryObjects" xmlns:extRif="http://ands.org.au/standards/rif-cs/extendedRegistryObjects" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ands.org.au/standards/rif-cs/registryObjects http://services.ands.org.au/documentation/rifcs/schema/registryObjects.xsd">
+    <registryObject group="Western Sydney University">
+        <key>http://handle.westernsydney.edu.au:8081/1959.7/hiev_135</key>
+        <originatingSource type="">http://research-data.westernsydney.edu.au/redbox/default</originatingSource>
+        <collection type="dataset" dateAccessioned="2016-09-29T00:00:00">
+            <name type="primary">
+                <namePart>Aboveground net primary productivity and photosynthesis for EucFACE from 2013 to 2015</namePart>
+            </name>
+            <description type="full">&lt;p&gt;These are the base datasets used to compute the CO2 fertilisation effect on photosynthesis and aboveground NPP for the Eucalyptus free-air CO2 enrichment (EucFACE) experiment for the years 2013, 2014 and 2015. They serve as an evaluation of the magnitude of the aboveground CO2 sink capacity of Australian native vegetation under current and future atmospheric [CO2]. All the measurements are organised according to plot which is sometimes referred to as &quot;ring&quot; because they’re circular. Plots designated 1, 4 and 5 received elevated CO2 as ambient +150ppm from 6th Feb. 2013 through the end of 2015. The remaining plots remained at ambient CO2 concentration during the course of the study. The data fall into three conceptual areas, comprising five files included in this package and described below:&lt;/p&gt;
+                &lt;ol&gt;
+                &lt;li&gt;Leaf photosynthesis (FACE_P0020_RA_GASEXCHANGE_L2_FEB2013-FEB2016_V1.csv)&lt;/li&gt;
+                &lt;li&gt;Litterfall of dried material produced in the forest (FACE_P0017_RA_Litter_20121001-20131231-R.csv, FACE_P0017_RA_Litter_20140101-20141216-L1.csv and FACE_P0017_RA_Litter_20150101-20151217-L1.csv)&lt;/li&gt;
+                &lt;li&gt;Tree biomass (FACE_P0025_RA_TREEMEAS_BIOMASS.csv)&lt;/li&gt;
+                &lt;/ol&gt;
+                &lt;p&gt;&lt;strong&gt;1. Leaf photosynthesis&lt;br /&gt;&lt;/strong&gt;Photosynthesis was measured in discrete campaigns and the principal age class of leaves of Eucalyptus tereticornis that were present at each timepoint. Measurements were made using a set of Li-Cor model 6400 portable photosynthesis systems using principles of infra-red gas analysis. Only the first photosynthesis measurement, made at the CO2 concentration the trees were growing in, is included here. These CO2 concentrations are nominally 396 ppm for ambient CO2 and 546 ppm for elevated atmospheric CO2 (= nominal ambient CO2 concentration +150ppm).&lt;/p&gt;
+                &lt;p&gt;&lt;strong&gt;2. Litterfall&lt;br /&gt;&lt;/strong&gt;This is the dry mass of litterfall collected on a monthly basis and described in Duursma et al. (2016) Global Change Biology v.22, 1666-1676; doi 10.1111/gcb.13151. Samples were collected and sorted into components and weighed. Insect frass is not included here and is published elsewhere, but represents a small fraction (&lt;2%) of the total annual litter production.&lt;/p&gt;
+                &lt;p&gt;&lt;strong&gt;3. Tree biomass&lt;br /&gt;&lt;/strong&gt;These are the diameters at breast height (1.3m above the ground) of the tree stems in plots at EucFACE. These trees were surveyed annually (or more frequently) and annual values were used to compute tree biomass according to allometric regressions for Eucalyptus tereticornis published in Paul et al. (2013) Forest Ecology and Management v.310, 483-494; 10.1016/j.foreco.2013.08.054. Tree biomass is for each year and pre- and post-treatment. Trees judged to be suppressed according to visual observations are not included in this dataset. All co-dominant trees are assumed to be Eucalyptus tereticornis although some may also be Eucalyptus amplifolia. Six trees with obvious cankers representing deformations of the stem diameter at the relevant height are also not included.&lt;/p&gt;</description>
+            <rights>
+                <rightsStatement>Copyright University of Western Sydney</rightsStatement>
+                <licence type="CC-BY" rightsUri="http://creativecommons.org/licenses/by/4.0">CC-BY: Attribution</licence>
+                <accessRights type="open" rightsUri="http://doi.org/10.4225/35/57ec5d4a2b78e">Dataset is available via the Western Sydney University ResearchDirect record under Attachments section.</accessRights>
+            </rights>
+            <identifier type="uri">http://handle.westernsydney.edu.au:8081/1959.7/hiev_135</identifier>
+            <identifier type="doi">10.4225/35/57ec5d4a2b78e</identifier>
+            <location>
+                <address>
+                    <electronic type="url" target="landingPage">
+                        <value>http://doi.org/10.4225/35/57ec5d4a2b78e</value>
+                        <title>Western Sydney ResearchDirect</title>
+                        <notes>Attachments section</notes>
+                    </electronic>
+                    <physical type="">
+                        <addressPart type="text">Western Sydney University</addressPart>
+                    </physical>
+                </address>
+            </location>
+            <coverage>
+                <temporal>
+                    <date type="dateFrom" dateFormat="W3CDTF">2011-02-17T00:00:00Z</date>
+                    <date type="dateTo" dateFormat="W3CDTF">2016-02-11T00:00:00Z</date>
+                </temporal>
+            </coverage>
+            <coverage>
+                <spatial type="gmlKmlPolyCoords">150.7380362,-33.61643299</spatial>
+            </coverage>
+            <coverage>
+                <spatial type="gmlKmlPolyCoords">150.7382066,-33.61902662</spatial>
+            </coverage>
+            <relatedObject>
+                <key>http://handle.uws.edu.au:8081/1959.7/512164</key>
+                <relation type="hasPrincipalInvestigator"/>
+            </relatedObject>
+            <relatedObject>
+                <key>http://handle.uws.edu.au:8081/1959.7/531995</key>
+                <relation type="hasCollector"/>
+            </relatedObject>
+            <relatedObject>
+                <key>http://handle.uws.edu.au:8081/1959.7/532024</key>
+                <relation type="hasCollector"/>
+            </relatedObject>
+            <relatedObject>
+                <key>http://handle.westernsydney.edu.au:8081/1959.7/532016</key>
+                <relation type="hasCollector"/>
+            </relatedObject>
+            <relatedObject>
+                <key>http://handle.uws.edu.au:8081/1959.7/512167</key>
+                <relation type="isManagedBy"/>
+            </relatedObject>
+            <relatedObject>
+                <key>SxWwl0xgKxud6xjMfzWLkLCPq7YuXU9GhW3sMrzmOUpLhzonZbZa</key>
+                <relation type="hasCollector"/>
+            </relatedObject>
+            <subject type="local">C storage</subject>
+            <subject type="local">Elevated CO2</subject>
+            <subject type="local">Eucalyptus forest</subject>
+            <subject type="local">NPP</subject>
+            <subject type="local">Photosynthesis</subject>
+            <subject type="local">Tree biomass</subject>
+            <subject type="local">Atmospheric CO2</subject>
+            <subject type="local">Forest C cycle</subject>
+            <subject type="local">Net primary productivity</subject>
+            <subject type="anzsrc-for">050101</subject>
+            <subject type="anzsrc-for">060203</subject>
+            <subject type="anzsrc-for">050102</subject>
+            <subject type="anzsrc-toa">Pure basic research</subject>
+            <relatedInfo type="website">
+                <title>HIE | EucFACE</title>
+                <identifier type="uri">http://www.westernsydney.edu.au/hie/facilities/EucFACE</identifier>
+            </relatedInfo>
+            <relatedInfo type="publication">
+                <title>Elevated CO2 does not increase eucalypt forest productivity on a low-phosphorus soil</title>
+                <identifier type="doi">10.1038/nclimate3235</identifier>
+            </relatedInfo>
+            <citationInfo>
+                <fullCitation style="Datacite">Ellsworth, David; Crous, Kristine; Gimeno, Teresa; Cooke, Julia; Powell, Jeffrey; Gherlenda, Andrew (2016): Aboveground net primary productivity and photosynthesis for EucFACE from 2013 to 2015. Western Sydney University. http://doi.org/10.4225/35/57ec5d4a2b78e</fullCitation>
+            </citationInfo>
+        </collection>
+    </registryObject>
+</registryObjects>
