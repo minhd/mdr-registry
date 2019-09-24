@@ -6,12 +6,7 @@ function create($class, array $attributes = [], int $count = 1)
         return factory($class)->create($attributes);
     }
 
-    $results = [];
-    for ($i = 0; $i < $count; $i++) {
-        $results[] = factory($class)->create($attributes);
-    }
-
-    return collect($results);
+    return factory($class, $count)->create($attributes);
 }
 
 function signIn($user = null)
