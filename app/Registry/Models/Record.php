@@ -17,4 +17,9 @@ class Record extends Model
     {
         return $this->hasMany(Version::class);
     }
+
+    public function getCurrentAttribute()
+    {
+        return $this->versions->where('status', 'CURRENT')->first();
+    }
 }

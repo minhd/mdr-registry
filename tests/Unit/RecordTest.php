@@ -20,4 +20,14 @@ class RecordTest extends TestCase
 
         $this->assertEquals($record->datasource->id, $dataSource->id);
     }
+
+    /** @test */
+    function it_has_a_current_version()
+    {
+        $version = create(Version::class);
+        $record = $version->record;
+
+        $this->assertInstanceOf(Version::class, $record->current);
+        $this->assertEquals($version->id, $record->current->id);
+    }
 }

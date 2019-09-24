@@ -30,12 +30,22 @@ class ImportManager
             throw new Exception("Schema $schema is not supported");
         }
 
+        // determine payload type and data
         $payload = $request['payload']['data'];
+        $data = null;
+        if ($payload['type'] === 'local') {
+            $data = file_get_contents($payload['path']);
+        } elseif ($payload['type'] === 'plain') {
+            $data = $payload['content'];
+        }
+        if (!$data) {
+            throw new Exception("Can't determine payload {json_encode($payload}");
+        }
 
         // extract identification from payload to update existing records
 
         // create new record
-        $this->addRecord($dataSource, $schema, $payload);
+        $this->addRecord($dataSource, $schema, $data);
 
         // or update existing record
     }

@@ -28,7 +28,10 @@ class ImportManagerTest extends TestCase
             'data_source_id' => $dataSource->id,
             'payload' => [
                 'schema' => "rifcs",
-                'data' => 'some data'
+                'data' => [
+                    'type' => 'plain',
+                    'content' => 'some content'
+                ]
             ]
         ]);
 
