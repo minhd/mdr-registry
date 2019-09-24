@@ -7,6 +7,7 @@ use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
 use App\Registry\Models\Schema;
 use App\Registry\Models\Version;
+use Exception;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -14,18 +15,19 @@ class ImportManagerTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    /** @test
+     * @throws Exception
+     */
     function it_can_import_a_payload_into_a_datasource()
     {
         $dataSource = create(DataSource::class);
-        $schema = create(Schema::class);
 
         $manager = new ImportManager();
 
-        $manager->import($dataSource, [
+        $manager->import([
             'data_source_id' => $dataSource->id,
             'payload' => [
-                'schema_id' => $schema->schema_id,
+                'schema' => "rifcs",
                 'data' => 'some data'
             ]
         ]);
@@ -44,10 +46,9 @@ class ImportManagerTest extends TestCase
     function it_can_add_a_record_to_a_datasource()
     {
         $dataSource = create(DataSource::class);
-        $schema = create(Schema::class);
 
         $manager = new ImportManager();
-        $manager->addRecord($dataSource, $schema, 'some data');
+        $manager->addRecord($dataSource, 'rifcs', 'some data');
 
         $this->assertCount(1, $records = Record::where('data_source_id', $dataSource->id)->get());
         $this->assertCount(1, $records->first()->versions);

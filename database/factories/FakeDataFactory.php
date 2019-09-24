@@ -1,8 +1,9 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var Factory $factory */
 
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(App\Registry\Models\User::class, function (Faker $faker) {
     return [
@@ -28,19 +29,9 @@ $factory->define(App\Registry\Models\Record::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(App\Registry\Models\Schema::class, function (Faker $faker) {
-    return [
-        'schema_id' => $faker->uuid,
-        'title' => $faker->name,
-        'format' => $faker->randomElement(['application/json', 'application/xml', 'text/plain']),
-        'description' => $faker->paragraph,
-        'user_id' => factory(App\Registry\Models\User::class)->create()->id
-    ];
-});
-
 $factory->define(App\Registry\Models\Version::class, function (Faker $faker) {
     return [
-        'schema_id' => factory(App\Registry\Models\Schema::class)->create()->schema_id,
+        'schema' => 'rifcs',
         'record_id' => factory(App\Registry\Models\Record::class)->create()->id,
         'status' => 'CURRENT',
         'data' => $faker->paragraph

@@ -6,22 +6,34 @@ use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
 use App\Registry\Models\Schema;
 use App\Registry\Models\Version;
+use Exception;
 
 class ImportManager
 {
-    public function import(DataSource $dataSource, $request)
+    /**
+     * @param $request
+     * @throws Exception
+     */
+    public function import($request)
     {
         // $this->validateImportRequest($request);
+        $dataSource = DataSource::find($request['data_source_id']);
+        if (!$dataSource) {
+            throw new Exception("DataSource not found");
+        }
 
-        // TODO check data source existence
+        // TODO validate data source id
+        // TODO validate schema
+        // TODO validate payload
 
-        $schema = Schema::where('schema_id', $request['payload']['schema_id'])->get()->first();
-        // TODO check schema existence
+        $schema = $request['payload']['schema'];
+        if (!SchemaManager::supports($schema)) {
+            throw new Exception("Schema $schema is not supported");
+        }
 
         $payload = $request['payload']['data'];
-        // TODO check payload existence
 
-        // extract identification from payload to update existing records
+         // extract identification from payload to update existing records
 
         // create new record
         $this->addRecord($dataSource, $schema, $payload);
@@ -29,7 +41,7 @@ class ImportManager
         // or update existing record
     }
 
-    public function addRecord(DataSource $dataSource, Schema $schema, $payload)
+    public function addRecord(DataSource $dataSource, $schema, $payload)
     {
         $record = Record::create([
             'title' => 'untitled',
@@ -37,21 +49,21 @@ class ImportManager
         ]);
 
         $version = Version::create([
-            'schema_id' => $schema->schema_id,
+            'schema' => $schema,
             'record_id' => $record->id,
             'status' => 'CURRENT',
             'data' => $payload
         ]);
     }
 
-    public function updateRecord(Record $record, Schema $schema, $payload)
+    public function updateRecord(Record $record, $schema, $payload)
     {
-        $record->versions()->where('schema_id', $schema->schema_id)->update([
+        $record->versions()->where('schema', $schema)->update([
             'status' => 'SUPERCEDED'
         ]);
 
         Version::create([
-            'schema_id' => $schema->schema_id,
+            'schema' => $schema,
             'record_id' => $record->id,
             'status' => 'CURRENT',
             'data' => $payload

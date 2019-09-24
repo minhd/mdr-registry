@@ -18,11 +18,4 @@ class VersionTest extends TestCase
         $version = create(Version::class);
         $this->assertInstanceOf(Record::class, $version->record);
     }
-
-    /** @test */
-    function a_version_has_one_schema()
-    {
-        $version = create(Version::class);
-        $this->assertInstanceOf(Schema::class, $version->schema);
-    }
 }
