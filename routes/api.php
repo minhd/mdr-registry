@@ -21,9 +21,13 @@ Route::middleware('auth:api')->get('/me', function (Request $request) {
 // api/
 Route::get('/', 'API\APIController@index');
 
-// api/resources
-Route::middleware('auth:api')->prefix('resources')->group(function () {
-    Route::apiResource('datasources', 'API\Resource\DataSourceAPIController');
-    Route::apiResource('records', 'API\Resource\RecordAPIController');
-    Route::apiResource('records.versions', 'API\Resource\RecordVersionAPIController');
+// api/registry
+Route::middleware('auth:api')->prefix('registry')->group(function () {
+    Route::prefix('resources')->group(function() {
+        Route::apiResource('datasources', 'API\Resource\DataSourceAPIController');
+        Route::apiResource('records', 'API\Resource\RecordAPIController');
+        Route::apiResource('records.versions', 'API\Resource\RecordVersionAPIController');
+    });
 });
+
+// api/igsn
