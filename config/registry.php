@@ -14,6 +14,10 @@ return [
             'metadata' => [
                 'core' => App\Registry\ContentProvider\JSONLD\Metadata\JSONLDCoreProvider::class,
             ]
+        ],
+        'igsn' => [
+            'provider' => null,
+            'metadata' => []
         ]
     ],
     'status' => [

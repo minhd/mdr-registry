@@ -14,12 +14,9 @@ class IdentifierTest extends TestCase
     /** @test */
     function an_identifier_has_many_records()
     {
-        $record = factory(Record::class)->create();
-        $record2 = factory(Record::class)->create();
-
         $id = factory(Identifier::class)->create();
-        $record->identifiers()->save($id);
-        $record2->identifiers()->save($id);
+        factory(Record::class)->create()->identifiers()->save($id);
+        factory(Record::class)->create()->identifiers()->save($id);
 
         $this->assertCount(2, $id->records);
     }

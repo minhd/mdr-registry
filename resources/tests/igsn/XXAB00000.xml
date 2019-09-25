@@ -1,0 +1,26 @@
+<ns2:resource xmlns:ns2="http://schema.igsn.org/description/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schema.igsn.org/description/1.0 https://raw.githubusercontent.com/IGSN/metadata/r1/description/resource.xsd" registedObjectType="http://schema.igsn.org/vocab/SampleCollection">
+    <ns2:identifier type="IGSN">http://hdl.handle.net/10273/XXAB00000</ns2:identifier>
+    <ns2:title>Neal McNaughton Collection SHRIMP mount 94-03 (IGSN XXAB00000)</ns2:title>
+    <ns2:description>Data has been provided by the Neal McNaughton Legacy Collection.</ns2:description>
+    <ns2:registrant>
+        <ns2:affiliation>
+            <ns2:identifier type="URI"/>
+        </ns2:affiliation>
+    </ns2:registrant>
+    <ns2:resourceTypes>
+        <ns2:resourceType>http://vocabulary.odm2.org/specimentype/other</ns2:resourceType>
+    </ns2:resourceTypes>
+    <ns2:materials>
+        <ns2:material>http://vocabulary.odm2.org/medium/mineral/</ns2:material>
+    </ns2:materials>
+    <ns2:contributors>
+        <ns2:contributor type="HostingInstitution">
+            <ns2:identifier type="URI">http://www.curtin.edu.au</ns2:identifier>
+            <ns2:name>Curtin University:Geological Survey of Western Australia</ns2:name>
+        </ns2:contributor>
+        <ns2:contributor type="ContactPerson">
+            <ns2:name>Neal McNaughton</ns2:name>
+        </ns2:contributor>
+    </ns2:contributors>
+    <ns2:isMetadataPublic>Public</ns2:isMetadataPublic>
+</ns2:resource>
