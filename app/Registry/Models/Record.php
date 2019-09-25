@@ -2,6 +2,7 @@
 
 namespace App\Registry\Models;
 
+use App\Registry\Models\Identifier;
 use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
@@ -20,6 +21,11 @@ class Record extends Model
     public function versions()
     {
         return $this->hasMany(Version::class);
+    }
+
+    public function identifiers()
+    {
+        return $this->belongsToMany(Identifier::class, 'records_identifiers');
     }
 
     public function getCurrentAttribute()

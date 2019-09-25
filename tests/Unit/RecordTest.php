@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Registry\Models\Identifier;
 use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
 use App\Registry\Models\Version;
@@ -29,5 +30,17 @@ class RecordTest extends TestCase
 
         $this->assertInstanceOf(Version::class, $record->current);
         $this->assertEquals($version->id, $record->current->id);
+    }
+
+    /** @test */
+    function it_has_identifiers()
+    {
+        $record = factory(Record::class)->create();
+        $record->identifiers()->saveMany([
+            $id1 = factory(Identifier::class)->create(),
+            $id2 = factory(Identifier::class)->create()
+        ]);
+
+        $this->assertCount(2, $record->fresh()->identifiers);
     }
 }

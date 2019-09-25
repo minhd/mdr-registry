@@ -37,3 +37,10 @@ $factory->define(App\Registry\Models\Version::class, function (Faker $faker) {
         'data' => $faker->paragraph
     ];
 });
+
+$factory->define(App\Registry\Models\Identifier::class, function (Faker $faker) {
+    return [
+        'type' => $faker->word,
+        'value' => $faker->sentence
+    ];
+});
