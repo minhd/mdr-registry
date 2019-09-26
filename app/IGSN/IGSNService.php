@@ -11,6 +11,8 @@ class IGSNService
     /** @var DataCiteClient */
     private $http;
 
+    private $client;
+
     /**
      * IGSNService constructor.
      * @param DataCiteClient $http
@@ -20,10 +22,16 @@ class IGSNService
         $this->http = $http;
     }
 
+    private function setClient($client)
+    {
+        $this->client = $client;
+    }
 
     public function mint($url, $xml)
     {
         // TODO is client authenticated
+
+
         // TODO validate url and domain
         // TODO construct IGSN string (prefix . uniqid)
         $igsn = 'XXAA1234';

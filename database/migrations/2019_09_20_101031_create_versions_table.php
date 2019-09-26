@@ -19,6 +19,7 @@ class CreateVersionsTable extends Migration
             $table->string('schema');
             $table->string('status');
             $table->longText('data');
+            $table->foreign('record_id')->references('id')->on('records');
             $table->timestamps();
         });
     }

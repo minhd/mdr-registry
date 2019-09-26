@@ -19,14 +19,6 @@ class CreateIdentifiersTable extends Migration
             $table->string('value');
             $table->timestamps();
         });
-
-        Schema::create('records_identifiers', function(Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('record_id');
-            $table->bigInteger('identifier_id');
-            $table->foreign('record_id')->references('id')->on('records');
-            $table->foreign('identifier_id')->references('id')->on('identifiers');
-        });
     }
 
     /**
@@ -37,6 +29,5 @@ class CreateIdentifiersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('identifiers');
-        Schema::dropIfExists('records_identifiers');
     }
 }
