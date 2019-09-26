@@ -38,4 +38,42 @@ class IGSNClientTest extends TestCase
 
         $this->assertCount(2, $client->fresh()->prefixes);
     }
+
+    /** @test */
+    function an_igsn_client_has_one_active_prefix()
+    {
+        $client = factory(IGSNClient::class)->create();
+        $first = factory(IGSNPrefix::class)->create();
+        $second = factory(IGSNPrefix::class)->create();
+        $client->prefixes()->saveMany([
+            $first,
+            $second,
+        ]);
+        $client->setActivePrefix($first);
+        $this->assertEquals($first->prefix, $client->fresh()->active_prefix->prefix);
+        $this->assertDatabaseHas('igsn_client_prefix', [
+            'client_id' => $client->id,
+            'prefix_id' => $first->id,
+            'active' => true
+        ]);
+        $this->assertDatabaseHas('igsn_client_prefix', [
+            'client_id' => $client->id,
+            'prefix_id' => $second->id,
+            'active' => false
+        ]);
+
+        // the other way (toggle)
+        $client->setActivePrefix($second);
+        $this->assertEquals($second->prefix, $client->fresh()->active_prefix->prefix);
+        $this->assertDatabaseHas('igsn_client_prefix', [
+            'client_id' => $client->id,
+            'prefix_id' => $second->id,
+            'active' => true
+        ]);
+        $this->assertDatabaseHas('igsn_client_prefix', [
+            'client_id' => $client->id,
+            'prefix_id' => $first->id,
+            'active' => false
+        ]);
+    }
 }

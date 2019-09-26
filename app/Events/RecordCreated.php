@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Registry\Models\Record;
+use App\Registry\Models\Version;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -11,20 +12,30 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class RecordUpdated
+class RecordCreated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    /**
+     * @var Record
+     */
     public $record;
+
+    /**
+     * @var Version
+     */
+    private $version;
 
     /**
      * Create a new event instance.
      *
      * @param Record $record
+     * @param Version $version
      */
-    public function __construct(Record $record)
+    public function __construct(Record $record, Version $version)
     {
         $this->record = $record;
+        $this->version = $version;
     }
 
     /**

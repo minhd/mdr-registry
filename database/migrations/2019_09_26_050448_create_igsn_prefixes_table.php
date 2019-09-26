@@ -23,6 +23,7 @@ class CreateIgsnPrefixesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('prefix_id');
+            $table->boolean('active')->default(false);
             $table->foreign('client_id')->references('id')->on('igsn_clients');
             $table->foreign('prefix_id')->references('id')->on('igsn_prefixes');
         });

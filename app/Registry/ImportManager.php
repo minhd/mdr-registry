@@ -2,6 +2,8 @@
 
 namespace App\Registry;
 
+use App\Events\RecordCreated;
+use App\Events\RecordUpdated;
 use App\Jobs\SyncRecord;
 use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
@@ -46,9 +48,11 @@ class ImportManager
         // extract identification from payload to update existing records
 
         // create new record
-        $this->addRecord($dataSource, $schema, $data);
+        $record = $this->addRecord($dataSource, $schema, $data);
 
         // or update existing record
+
+
     }
 
     public function addRecord(DataSource $dataSource, $schema, $payload)
@@ -64,6 +68,9 @@ class ImportManager
             'status' => 'CURRENT',
             'data' => $payload
         ]);
+
+        event(new RecordCreated($record, $version));
+        return $record;
     }
 
     public function updateRecord(Record $record, $schema, $payload)
@@ -78,5 +85,7 @@ class ImportManager
             'status' => 'CURRENT',
             'data' => $payload
         ]);
+
+        event(new RecordUpdated($record));
     }
 }
