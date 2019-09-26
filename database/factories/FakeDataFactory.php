@@ -44,3 +44,23 @@ $factory->define(App\Registry\Models\Identifier::class, function (Faker $faker) 
         'value' => $faker->sentence
     ];
 });
+
+$factory->define(App\IGSN\Models\IGSNClient::class, function (Faker $faker) {
+    return [
+        'user_id' => factory(App\Registry\Models\User::class)->create()->id,
+        'data_source_id' => factory(App\Registry\Models\DataSource::class)->create()->id
+    ];
+});
+
+$factory->define(App\IGSN\Models\IGSN::class, function (Faker $faker) {
+    return [
+        'client_id' => factory(App\IGSN\Models\IGSNClient::class)->create()->id,
+        'igsn' => $faker->uuid
+    ];
+});
+
+$factory->define(App\IGSN\Models\IGSNPrefix::class, function (Faker $faker) {
+    return [
+        'prefix' => $faker->word
+    ];
+});
