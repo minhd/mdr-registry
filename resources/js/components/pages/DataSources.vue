@@ -21,16 +21,19 @@
         datasources: []
       }
     },
-    mounted () {
-      bus.$on('DATASOURCES_UPDATED', this.updateDataSourceList)
-      this.updateDataSourceList()
-    },
     methods: {
       updateDataSourceList() {
         ResourceAPI.get('datasources').then(response => {
           this.datasources = response.data
         })
       }
+    },
+    mounted () {
+      bus.$on('DATASOURCES_UPDATED', this.updateDataSourceList)
+      this.updateDataSourceList()
+    },
+    beforeDestroy(){
+      bus.$off('DATASOURCES_UPDATED', this.updateDataSourceList)
     }
   }
 </script>
