@@ -11415,6 +11415,38 @@ video {
   @pply bg-blue-600;
 }
 
+.nav {
+  background-color: #fff;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  border-bottom-width: 1px;
+  border-color: #e2e8f0;
+}
+
+.nav .nav-link {
+  color: #718096;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  display: block;
+}
+
+.nav .nav-link:hover {
+  color: #4299e1;
+}
+
+.nav .nav-link:focus {
+  outline: 0;
+}
+
+.nav .router-link-active {
+  color: #4299e1;
+  border-bottom-width: 2px;
+  font-weight: 500;
+  border-color: #4299e1;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
