@@ -12,3 +12,28 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.mdr-form {
+    .label {
+        @apply block mb-2 text-sm text-gray-800;
+    }
+
+    .input {
+        @apply appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+    }
+
+    .input:focus {
+        @apply border-blue-500 outline-none;
+    }
+
+    .btn {
+        @apply align-middle text-center px-4 py-2 text-sm rounded-lg inline-block shadow-lg font-semibold;
+    }
+
+    .btn-primary {
+        @apply bg-blue-500 text-white;
+        &:hover {
+            @pply bg-blue-600;
+        }
+    }
+}

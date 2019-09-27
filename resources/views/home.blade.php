@@ -1,5 +1,5 @@
 @extends('layouts.single')
 
 @section('content')
-    <registry-dashboard></registry-dashboard>
+    <div id="app"></div>
 @endsection
