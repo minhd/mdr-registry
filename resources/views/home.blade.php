@@ -1,23 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.single')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="p-10 bg-gray-200 w-full h-screen flex flex-wrap flex-col content-center m-auto justify-center">
+        <div class="bg-white w-full lg:w-1/3 px-6 py-16 border border-gray-300 rounded-lg py-2 px-4 block w-1/2">
+            You are logged in!
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <div class="" aria-labelledby="navbarDropdown">
+                <a class="" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
 
-                    You are logged in!
-                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>
-</div>
 @endsection
