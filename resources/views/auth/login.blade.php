@@ -2,8 +2,12 @@
 
 @section('content')
     <div class="p-10 bg-gray-200 w-full h-screen flex flex-wrap flex-col content-center m-auto justify-center">
-        <div class="bg-white w-full lg:w-1/3 px-6 py-16 border border-gray-300 rounded-lg py-2 px-4 block w-1/2">
-            <form class="mb-4" method="POST" action="{{ route('login') }}">
+        <div class="bg-white w-full lg:w-1/3 border border-gray-300 rounded-lg block w-1/2">
+            <div class="flex justify-between">
+                <a href="{{ route('login') }}" class="block w-1/2 text-center p-4 hover:text-blue-500 text-2xl">Login</a>
+                <a href="{{ route('register') }}" class="block w-1/2 text-center p-4 hover:text-blue-500 text-2xl bg-gray-200">Register</a>
+            </div>
+            <form class="mb-4 py-16 px-8" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="mb-4 font-light tracking-widest text-2xl">Metadata Registry - LOGIN</div>
                 <div class="mb-4">

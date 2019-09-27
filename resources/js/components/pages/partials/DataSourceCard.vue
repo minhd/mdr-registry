@@ -1,7 +1,9 @@
 <template>
     <div>
         <Card>
-            <template v-slot:title>{{ datasource.title }}</template>
+            <template v-slot:title>
+                <router-link :to="{ name: 'datasources.view', params: { id: datasource.id }}">{{ datasource.title }}</router-link>
+            </template>
             <a href="" @click.prevent="destroy">Delete</a>
         </Card>
     </div>

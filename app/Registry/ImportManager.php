@@ -4,6 +4,7 @@ namespace App\Registry;
 
 use App\Events\RecordCreated;
 use App\Events\RecordUpdated;
+use App\Jobs\ProcessRecordMetadata;
 use App\Jobs\SyncRecord;
 use App\Registry\Models\DataSource;
 use App\Registry\Models\Record;
@@ -52,7 +53,7 @@ class ImportManager
 
         // or update existing record
 
-
+        dispatch(new ProcessRecordMetadata($record));
     }
 
     public function addRecord(DataSource $dataSource, $schema, $payload)

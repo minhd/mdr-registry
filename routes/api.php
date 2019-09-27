@@ -28,6 +28,9 @@ Route::middleware('auth:api')->prefix('registry')->group(function () {
         Route::apiResource('records', 'API\Resource\RecordAPIController');
         Route::apiResource('records.versions', 'API\Resource\RecordVersionAPIController');
     });
+    Route::prefix('services')->group(function() {
+        Route::post('import', 'API\Services\ImportAPIController@store');
+    });
 });
 
 // api/igsn
