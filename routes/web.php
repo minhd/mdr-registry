@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'PortalHomeController@index');
+Route::get('/view/{id}', 'PortalHomeController@view')->name('record.view');
 
 Auth::routes();
 

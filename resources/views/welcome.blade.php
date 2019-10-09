@@ -64,11 +64,16 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="position-ref full-height">
             <div class="content">
                 <div class="title m-b-md">
                     Metadata Registry
                 </div>
+                <ul>
+                    @foreach ($records as $record)
+                    <li><a href="{{ route('record.view', ['id' => $record->id]) }}">{{ $record->title }}</a></li>
+                    @endforeach
+                </ul>
                 @if (Route::has('login'))
                     <div class="links">
                         @auth
