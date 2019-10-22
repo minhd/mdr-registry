@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Jobs\ImportJob;
+use App\Registry\Models\DataSource;
 use App\Registry\Models\Import;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
@@ -29,6 +30,9 @@ class ImportJobTest extends TestCase
                     'schema' => 'rifcs',
                     'type' => 'plain',
                     'content' => Storage::disk('tests')->get('jsonld/rda-754374.json')
+                ],
+                'dest' => [
+                    'data_source_id' => factory(DataSource::class)->create()->id
                 ]
             ]
         ]);
@@ -36,5 +40,34 @@ class ImportJobTest extends TestCase
 
         // subtasks are filled
         $this->assertIsArray($import->fresh()->info['subtasks']);
+    }
+
+    /** @test */
+    function an_import_will_insert_1_record()
+    {
+        $dataSource = factory(DataSource::class)->create();
+        $import = factory(Import::class)->create([
+            'params' => [
+                'src' => [
+                    'schema' => 'rifcs',
+                    'type' => 'plain',
+                    'content' => Storage::disk('tests')->get('rifcs/rda-754374.xml')
+                ],
+                'dest' => [
+                    'data_source_id' => $dataSource->id
+                ]
+            ]
+        ]);
+
+        ImportJob::dispatchNow($import);
+
+        // there is now 1 record
+        $this->assertCount(1, $dataSource->fresh()->records);
+
+        // import again
+        ImportJob::dispatchNow($import);
+
+        // still 1 record, because the record is unchanged
+        $this->assertCount(1, $dataSource->fresh()->records);
     }
 }

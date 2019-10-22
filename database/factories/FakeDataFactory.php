@@ -34,7 +34,8 @@ $factory->define(App\Registry\Models\Version::class, function (Faker $faker) {
         'schema' => 'rifcs',
         'record_id' => factory(App\Registry\Models\Record::class)->create()->id,
         'status' => 'CURRENT',
-        'data' => $faker->paragraph
+        'data' => $para = $faker->paragraph,
+        'hash' => md5($para)
     ];
 });
 
@@ -67,9 +68,17 @@ $factory->define(App\IGSN\Models\IGSNPrefix::class, function (Faker $faker) {
 
 $factory->define(App\Registry\Models\Import::class, function (Faker $faker) {
     return [
-        'data_source_id' => factory(App\Registry\Models\DataSource::class)->create()->id,
+        'data_source_id' => $id = factory(App\Registry\Models\DataSource::class)->create()->id,
         'status' => 'PENDING',
-        'params' => [],
+        'params' => [
+            'src' => [
+                'schema' => 'rifcs',
+                'content' => 'plain'
+            ],
+            'dest' => [
+                'data_source_id' => $id
+            ]
+        ],
         'info' => []
     ];
 });
