@@ -64,3 +64,12 @@ $factory->define(App\IGSN\Models\IGSNPrefix::class, function (Faker $faker) {
         'prefix' => $faker->word
     ];
 });
+
+$factory->define(App\Registry\Models\Import::class, function (Faker $faker) {
+    return [
+        'data_source_id' => factory(App\Registry\Models\DataSource::class)->create()->id,
+        'status' => 'PENDING',
+        'params' => [],
+        'info' => []
+    ];
+});
