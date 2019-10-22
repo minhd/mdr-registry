@@ -26,6 +26,9 @@ class SchemaManager
         }
 
         $providerClass = config("registry.schemas.$schema.provider");
+        if (!$providerClass) {
+            throw new \Exception("Provider for the schema $schema is not defined");
+        }
         $provider = new $providerClass;
         return $provider;
     }

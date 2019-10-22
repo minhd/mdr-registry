@@ -31,7 +31,7 @@ class ImportManagerTest extends TestCase
                 'schema' => "rifcs",
                 'data' => [
                     'type' => 'plain',
-                    'content' => 'some content'
+                    'content' => Storage::disk('tests')->get('rifcs/rda-754374.xml')
                 ]
             ]
         ]);
