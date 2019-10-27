@@ -40,7 +40,7 @@ class ImportJob implements ShouldQueue
         $this->import->setStatus(Import::$STATUS_RUNNING);
 
         // TODO determine subtasks based on type, schema and workflow
-        $subtasks = $this->determineSubtasks($this->import->params);
+        $subtasks = $this->determineSubtasks();
         $this->import->saveTaskData('subtasks', $subtasks);
 
         $this->ingest();
@@ -84,13 +84,14 @@ class ImportJob implements ShouldQueue
         // TODO mark ingest as completed
     }
 
-    public function determineSubtasks($params)
+    public function determineSubtasks()
     {
         $subtasks = [];
+        $params = $this->import->params;
 
-//        $type = $params['src']['type'];
-//        $schema = $params['src']['schema'];
-//
+        $type = $params['src']['type'];
+        $schema = $params['src']['schema'];
+
 //        $metadata = config("registry.schemas.$schema.metadata");
 //
 //        if ($type === 'plain') {

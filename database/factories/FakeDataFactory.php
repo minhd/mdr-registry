@@ -73,7 +73,8 @@ $factory->define(App\Registry\Models\Import::class, function (Faker $faker) {
         'params' => [
             'src' => [
                 'schema' => 'rifcs',
-                'content' => 'plain'
+                'type' => 'plain',
+                'content' => 'stuff'
             ],
             'dest' => [
                 'data_source_id' => $id

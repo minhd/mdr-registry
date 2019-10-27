@@ -42,8 +42,35 @@ class ImportJobTest extends TestCase
         $this->assertIsArray($import->fresh()->info['subtasks']);
     }
 
+    // TODO move to functional test
     /** @test */
     function an_import_will_insert_1_record()
+    {
+        // setup
+        $dataSource = factory(DataSource::class)->create();
+        $import = factory(Import::class)->create([
+            'params' => [
+                'src' => [
+                    'schema' => 'rifcs',
+                    'type' => 'plain',
+                    'content' => Storage::disk('tests')->get('rifcs/rda-754374.xml')
+                ],
+                'dest' => [
+                    'data_source_id' => $dataSource->id
+                ]
+            ]
+        ]);
+
+        // act
+        ImportJob::dispatchNow($import);
+
+        // there is now 1 record
+        $this->assertCount(1, $dataSource->fresh()->records);
+    }
+
+    // TODO move to ingestsubtask
+    /** @test */
+    function an_import_of_the_same_payload_will_leave_record_unchanged()
     {
         $dataSource = factory(DataSource::class)->create();
         $import = factory(Import::class)->create([
