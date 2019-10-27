@@ -1,6 +1,6 @@
 <template>
     <nav class="nav">
-        <div class="flex justify-between mx-4">
+        <div class="flex justify-between">
             <div class="flex">
                 <router-link to="/" class="nav-link" exact>Dashboard</router-link>
                 <router-link to="/datasources" class="nav-link">Data Sources</router-link>

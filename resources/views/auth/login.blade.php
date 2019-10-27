@@ -7,9 +7,8 @@
                 <a href="{{ route('login') }}" class="block w-1/2 text-center p-4 hover:text-blue-500 text-2xl">Login</a>
                 <a href="{{ route('register') }}" class="block w-1/2 text-center p-4 hover:text-blue-500 text-2xl bg-gray-200">Register</a>
             </div>
-            <form class="mb-4 py-16 px-8" method="POST" action="{{ route('login') }}">
+            <form class="mb-4 py-8 px-8" method="POST" action="{{ route('login') }}">
                 @csrf
-                <div class="mb-4 font-light tracking-widest text-2xl">Metadata Registry - LOGIN</div>
                 <div class="mb-4">
                     <label for="email" class="block mb-2 text-sm text-gray-800">{{ __('E-Mail Address') }}</label>
                     <input id="email"

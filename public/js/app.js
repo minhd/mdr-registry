@@ -1848,6 +1848,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
@@ -19834,12 +19837,23 @@ var render = function() {
     [
       _c("nav-bar"),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "p-10" }, [_c("router-view")], 1)
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "px-10 py-2 bg-gray-100" }, [
+      _c("span", { staticClass: "text-gray-400 text-sm" }, [_vm._v("Home")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -20260,7 +20274,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "nav" }, [
-    _c("div", { staticClass: "flex justify-between mx-4" }, [
+    _c("div", { staticClass: "flex justify-between" }, [
       _c(
         "div",
         { staticClass: "flex" },
